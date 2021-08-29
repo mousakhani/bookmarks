@@ -1,0 +1,22 @@
+{% extends '_base.html' %}
+
+{% block  title %}
+    Register
+{% endblock %}
+{% block content %}
+    <h1>There is Register Page</h1>
+    {% if request.user.is_authenticated %}
+        Your name is: {{ request.user.username }}
+        <br>
+        Your email is: {{ request.user.email }}
+        <br>
+        <a href="{% url 'account:dashboard' %}">Dashboard</a>
+    {% else %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Register">
+        </form>
+    {% endif %}
+
+{% endblock %}
