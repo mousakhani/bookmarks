@@ -1,0 +1,16 @@
+{% extends '_base.html' %}
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+    <h1>There is Home page</h1>
+    {% if user.authenticate %}
+        {{ dashboard }}
+        <a href="{% url 'account:dashboard' %}"> Dashboard</a>
+        <a href="{% url 'account:logout' %}"> Logout</a>
+    {% else %}
+        <a href="{% url 'account:user_login' %}">Log-in</a>
+    {% endif %}
+
+{% endblock %}
