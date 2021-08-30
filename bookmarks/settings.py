@@ -34,6 +34,7 @@ ALLOWED_HOSTS = [
 
 LOCAL_APPS = [
 	'account.apps.AccountConfig',
+	'images.apps.ImagesConfig',
 ]
 
 GLOBAL_APPS = [
@@ -139,6 +140,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 AUTHENTICATION_BACKENDS = [
+	'social_core.backends.google.GoogleOAuth2',
 	'django.contrib.auth.backends.ModelBackend',
 	'account.authentication.EmailAuthBackend',  # custom authentication backend
 ]
