@@ -10,6 +10,7 @@
         <br>
         <h2>Your name is: {{ request.user.username }}</h2>
         <a href="{% url 'account:dashboard' %}"> Dashboard</a>
+        <a href="{% url 'account:edit' %}">Edit Profile</a>
         <a href="{% url 'account:logout' %}"> Logout</a>
     {% else %}
         <a href="{% url 'account:register' %}">Register</a>
