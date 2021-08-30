@@ -24,7 +24,11 @@ SECRET_KEY = 'django-insecure-_7x9_no7_m8awy=1w+om15=s7xc%8&q2t7j8nk@zikl*glkbxf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+	'mysite.com',
+	'localhost',
+	'127.0.0.1'
+]
 
 # Application definition
 
@@ -41,7 +45,10 @@ GLOBAL_APPS = [
 	'django.contrib.staticfiles',
 ]
 
-ADDED_APPS = []
+ADDED_APPS = [
+	# authentication using social websites
+	'social_django',
+]
 
 INSTALLED_APPS = GLOBAL_APPS + LOCAL_APPS + ADDED_APPS
 
@@ -130,3 +137,8 @@ LOGIN_URL = '/login/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+AUTHENTICATION_BACKENDS = [
+	'django.contrib.auth.backends.ModelBackend',
+	'account.authentication.EmailAuthBackend',  # custom authentication backend
+]
