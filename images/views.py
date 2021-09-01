@@ -22,7 +22,7 @@ def image_create(request):
 
 			# redirect to new created item detail view
 			# redirect to new_item.get_absolute_url
-			return redirect(new_item)
+			return redirect(new_item.get_absolute_url())
 	else:
 		form = ImageCreateForm(data=request.GET)
 

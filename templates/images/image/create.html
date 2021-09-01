@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends '_base.html' %}
 
-</body>
-</html>
+{% block title %} BookMark an Image{% endblock %}
+{% block content %}
+    <h1>Bookmark an image</h1>
+    <img src="{{ request.GET.url }}">
+    <form method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" value="Bookmark it!">
+    </form>
+
+{% endblock %}
